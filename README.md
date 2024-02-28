@@ -6,7 +6,7 @@ A people's history app for users to submit their own local knowledge and points 
 
  
 ## Introduction
-People's history - the events and stories of normal people and communities - can be hard to learn about and find without insider or local knowledge. This web app will allow users to add, collate and share points of interest to facilitate sharing and preserving stories both within the local community, and for interested visitors.
+People's history - i.e. the events and stories of normal people and communities - can be hard to learn about and find without insider or local knowledge. This web app will allow users to add, collate and share points of interest to facilitate sharing and preserving stories both within the local community, and for interested visitors.
 
 ## Proposed features
 1.	Users can securely sign up and log in to the service.
