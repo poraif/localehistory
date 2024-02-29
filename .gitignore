@@ -125,3 +125,5 @@ dist
 .env
 
 /node_modules
+
+localehistory.code-workspace
