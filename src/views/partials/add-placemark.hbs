@@ -1,17 +1,39 @@
-<form class="box" action="/street/{{street._id}}/addplacemark" method="POST">
-  <label>Enter Track Details:</label>
-  <div class="field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Title" name="title">
-      </div>
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Artist" name="artist">
-      </div>
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter duration" name="duration">
+  <form action="/street/{{street._id}}/addplacemark" method="POST">
+    <div class="field">
+      <label class="label">Title</label> <input class="input" type="text" placeholder="Enter placemark title" name="title">
+    </div>
+  <div class="field">
+  <label class="label">Description</label>
+  <div class="control">
+    <textarea class="textarea" type="text" placeholder="Enter placemark description" name="description"></textarea>
+  </div>
+</div>
+    <div class="field">
+      <label class="label">Year</label> <input class="input" type="text" placeholder="Enter year where applicable" name="year">
+      <p class="help">BC or AD can be appended to the year in format '200 BC' if needed</p>
+    </div>
+    <div class="field">
+      <label class="label">Latitude</label> <input class="input" type="number" step="0.000001" placeholder="53.349801" name="latitude">
+      <p class="help">Please enter value between -90.000000 and 90.000000</p>
+    </div>
+    <div class="field">
+      <label class="label">Longitude</label> <input class="input" type="number" step="0.000001" placeholder="6.260302" name="longitude">
+      <p class="help">Please enter value between -180.000000 and 180.000000</p>
+    </div>
+ <div class="field">
+    <label class="label">Category</label>
+    <div class="control">
+      <div class="select">
+        <select name="category">
+          <option>Landmark</option>
+          <option>Residence</option>
+          <option>Event</option>
+          <option>Other</option>
+        </select>
       </div>
     </div>
   </div>
-  <button class="button is-primary">Add placemark</button>
-</form>
+    <div class="field is-grouped">
+      <button class="button is-link">Submit</button>
+    </div>
+  </form>

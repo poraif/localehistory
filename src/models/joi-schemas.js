@@ -25,11 +25,10 @@ export const PlacemarkSpec = Joi.object()
   .keys({
     title: Joi.string().max(30).required().example("Brendan Behan statue"),
     description: Joi.string().max(150).optional().example("A statue of the famous Irish writer"),
-    year: Joi.text().optional().max(6).example(1981),
-    latitude: Joi.number().required().min(90).max(90).example(53.349562),
-    longitude: Joi.number().required().min(180).max(180).example(-6.278198),
-    category: Joi.string().valid(["Landmark", "Residence", "Event", "Other"]).required().example("residence"),
-    author: Joi.boolean().optional().example(false),
+    year: Joi.string().optional().max(6).example(1981),
+    latitude: Joi.number().required().min(-90).max(90).example(53.349562),
+    longitude: Joi.number().required().min(-180).max(180).example(-6.278198),
+    category: Joi.string().valid("Landmark", "Residence", "Event", "Other").required().example("residence"),
     streetid: IdSpec,
   })
   .label("Placemark");
@@ -43,7 +42,7 @@ export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("Pl
 
 export const StreetSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Meath Street"),
+    name: Joi.string().required().example("Meath Street"),
     userid: IdSpec,
     placemarks: PlacemarkArraySpec,
   })

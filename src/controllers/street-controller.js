@@ -1,6 +1,47 @@
-// import { TrackSpec } from "../models/joi-schemas.js";
+import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
 export const streetController = {
- 
-};
+  index: {
+    handler: async function (request, h) {
+      const street = await db.streetStore.getStreetById(request.params.id);
+      const viewData = {
+        name: "Street",
+        street: street,
+      };
+      return h.view("street-view", viewData);
+    },
+  },
+
+
+  addPlacemark: {
+    validate: {
+      payload: PlacemarkSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("street-view", { title: "Add placemark error", errors: error.details }).takeover().code(400);
+      }
+    },
+    handler: async function (request, h) {
+      const street = await db.streetStore.getStreetById(request.params.id);
+      const newPlacemark = {
+        title: request.payload.title,
+        description: request.payload.description,
+        year: request.payload.year,
+        latitude: Number(request.payload.latitude),
+        longitude: Number(request.payload.longitude),
+        category: request.payload.category,
+      };
+      await db.placemarkStore.addPlacemark(street._id, newPlacemark);
+      return h.redirect(`/street/${street._id}`);
+    }
+  },
+
+  deletePlacemark: {
+    handler: async function (request, h) {
+      const street = await db.streetStore.getStreetById(request.params.id);
+      await db.placemarkStore.deletePlacemark(request.params.placemarkid);
+      return h.redirect(`/street/${street._id}`);
+    }
+  }
+}; // Closing brace for streetController
