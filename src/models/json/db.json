@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "peadar@a.com",
+      "password": "a",
+      "_id": "8e8dd1f6-3549-46c6-8c91-ca996475c9de"
+    },
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a@a.com",
+      "password": "a",
+      "_id": "497d52fb-0909-4796-8965-4ce74eaa7820"
+    }
+  ],
+  "streets": [
+    {
+      "userid": "497d52fb-0909-4796-8965-4ce74eaa7820",
+      "_id": "c4a4f70f-268f-40df-9771-19949d21e26b"
+    }
+  ],
+  "placemarks": []
+}

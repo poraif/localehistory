@@ -2,7 +2,7 @@
   "name": "localehistory",
   "version": "0.0.1",
   "description": "A placemark node.js app for adding points of interest for people's history",
-  "main": "index.js",  
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wit-hdip-comp-sci-2021/playtime.git"
+    "url": "git+https://github.com/wit-hdip-comp-sci-2021/localehistory.git"
   },
   "keywords": [
     "node",
@@ -24,11 +24,13 @@
   "license": "ISC",
   "homepage": "https://github.com/poraif/localehistory#readme",
   "dependencies": {
+    "@creativebulma/bulma-collapsible": "^1.0.4",
     "@hapi/boom": "^10.0.1",
     "@hapi/cookie": "^12.0.1",
     "@hapi/hapi": "^21.3.3",
     "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
+    "bulma-extensions": "^6.2.7",
     "dotenv": "^16.4.5",
     "handlebars": "^4.7.8",
     "hapi-auth-jwt2": "^10.5.1",
@@ -45,7 +47,6 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^9.2.6",
     "@semantic-release/release-notes-generator": "^12.1.0",
-    "semantic-release": "^23.0.2",
     "axios": "^1.6.7",
     "chai": "^5.1.0",
     "eslint": "^8.56.0",
@@ -53,7 +54,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "mocha": "^10.3.0",
-    "nodemon": "^3.0.3",
-    "prettier": "^3.2.5"
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "semantic-release": "^23.0.2"
   }
 }
