@@ -13,14 +13,14 @@ export const streetController = {
     },
   },
 
-
   addPlacemark: {
     validate: {
       payload: PlacemarkSpec,
       options: { abortEarly: false },
-      failAction: function (request, h, error) {
-        return h.view("street-view", { title: "Add placemark error", errors: error.details }).takeover().code(400);
-      }
+      failAction: async function (request, h, error) {
+        const currentStreet = await db.streetStore.getStreetById(request.params.id);
+        return h.view("street-view", { title: "Add placemark error", street:currentStreet, errors: error.details }).takeover().code(400);
+      },
     },
     handler: async function (request, h) {
       const street = await db.streetStore.getStreetById(request.params.id);
@@ -28,13 +28,13 @@ export const streetController = {
         title: request.payload.title,
         description: request.payload.description,
         year: request.payload.year,
-        latitude: Number(request.payload.latitude),
-        longitude: Number(request.payload.longitude),
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
         category: request.payload.category,
       };
       await db.placemarkStore.addPlacemark(street._id, newPlacemark);
       return h.redirect(`/street/${street._id}`);
-    }
+    },
   },
 
   deletePlacemark: {
@@ -42,6 +42,6 @@ export const streetController = {
       const street = await db.streetStore.getStreetById(request.params.id);
       await db.placemarkStore.deletePlacemark(request.params.placemarkid);
       return h.redirect(`/street/${street._id}`);
-    }
-  }
-}; // Closing brace for streetController
+    },
+  },
+};

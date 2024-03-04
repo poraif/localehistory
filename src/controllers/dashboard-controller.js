@@ -27,7 +27,7 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const newStreet = {
         userid: loggedInUser._id,
-        title: request.payload.title,
+        name: request.payload.name,
       };
       await db.streetStore.addStreet(newStreet);
       return h.redirect("/dashboard");
