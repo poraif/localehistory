@@ -1,82 +1,39 @@
 {
   "users": [
     {
-      "firstName": "a",
-      "lastName": "a",
-      "email": "peadar@a.com",
-      "password": "a",
-      "_id": "8e8dd1f6-3549-46c6-8c91-ca996475c9de"
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "_id": "52541bd2-1f06-4eb5-bbe3-cc895a044623"
     },
     {
-      "firstName": "a",
-      "lastName": "a",
-      "email": "a@a.com",
-      "password": "a",
-      "_id": "497d52fb-0909-4796-8965-4ce74eaa7820"
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "17a91c90-440a-4b26-94e2-aa118eb8b130"
     },
     {
-      "firstName": "b",
-      "lastName": "b",
-      "email": "b@b.com",
-      "password": "b",
-      "_id": "b6b91d72-a1ca-48ba-86b1-edcccb55fb0d"
-    },
-    {
-      "firstName": "c",
-      "lastName": "c",
-      "email": "c@c.com",
-      "password": "c",
-      "_id": "840c381f-abad-4049-9229-6896ff2ee032"
-    },
-    {
-      "firstName": "d",
-      "lastName": "d",
-      "email": "d@d.com",
-      "password": "d",
-      "_id": "efbfc9e2-890d-4cb9-b4f9-11c7cd03dd05"
-    },
-    {
-      "firstName": "aa",
-      "lastName": "aa",
-      "email": "aa@a.com",
-      "password": "aa",
-      "_id": "e8037f35-801b-4d5a-bf97-54bde340efe6"
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "_id": "03e4ed7a-f014-4070-8247-71e47325e91d"
     }
   ],
   "streets": [
     {
-      "userid": "497d52fb-0909-4796-8965-4ce74eaa7820",
-      "_id": "c4a4f70f-268f-40df-9771-19949d21e26b"
+      "title": "Meath Street",
+      "_id": "a95e5e84-3c81-404f-8719-1052fdfa17e8"
     },
     {
-      "userid": "b6b91d72-a1ca-48ba-86b1-edcccb55fb0d",
-      "name": "talbot street",
-      "_id": "64afa634-397e-40ec-8c99-15916db6dc44"
+      "title": "Talbot Street",
+      "_id": "3b62908c-366a-4daa-8bb3-93a8133d06f1"
     },
     {
-      "userid": "840c381f-abad-4049-9229-6896ff2ee032",
-      "name": "test",
-      "_id": "192129b9-3875-479a-8fb3-237f7ef3535c"
-    },
-    {
-      "userid": "840c381f-abad-4049-9229-6896ff2ee032",
-      "name": "testr",
-      "_id": "549a170c-1eb8-448d-bec1-285dcafba9ec"
-    },
-    {
-      "userid": "efbfc9e2-890d-4cb9-b4f9-11c7cd03dd05",
-      "name": "test",
-      "_id": "a9dbf2ba-bea6-4ecb-b17b-2387c4de856b"
-    },
-    {
-      "userid": "e8037f35-801b-4d5a-bf97-54bde340efe6",
-      "name": "blanch",
-      "_id": "b4b890db-c2f7-4185-91a0-52182bdb8b8c"
-    },
-    {
-      "userid": "e8037f35-801b-4d5a-bf97-54bde340efe6",
-      "name": "testr",
-      "_id": "7b61cdb5-86be-4b0e-96a0-da8e0c7c44ee"
+      "title": "O'Connell Street",
+      "_id": "5e0848c9-ce18-4886-bbc0-bb5a0b0c8200"
     }
   ],
   "placemarks": [
