@@ -1,5 +1,4 @@
 import { Placemark } from "./placemark.js";
-import { Street } from "./street.js";
 
 export const placemarkMongoStore = {
   async getAllPlacemarks() {
@@ -42,8 +41,11 @@ export const placemarkMongoStore = {
   async updatePlacemark(placemark, updatedPlacemark) {
     const placemarkDoc = await Placemark.findOne({ _id: placemark._id });
     placemarkDoc.title = updatedPlacemark.title;
-    placemarkDoc.artist = updatedPlacemark.artist;
-    placemarkDoc.duration = updatedPlacemark.duration;
+    placemarkDoc.description = updatedPlacemark.description;
+    placemarkDoc.year = updatedPlacemark.year;
+    placemarkDoc.latitude = updatedPlacemark.latitude;
+    placemarkDoc.longitude = updatedPlacemark.longitude;
+    placemarkDoc.category = updatedPlacemark.category;
     await placemarkDoc.save();
   },
 };

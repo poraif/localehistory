@@ -32,6 +32,10 @@ export const maggie = {
     title: "talbot street"
   };
 
+  export const parnell = {
+    title: "parnell street"
+  };
+
   export const testStreets = [
     {
       title: "Meath Street"

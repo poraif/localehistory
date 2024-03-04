@@ -14,13 +14,13 @@ export const db = {
 
 init(storeType) {
   switch (storeType) {
-    case "mongo" :
+    case "mongo":
       this.userStore = userMongoStore;
       this.streetStore = streetMongoStore;
       this.placemarkStore = placemarkMongoStore;
       connectMongo();
       break;
-    default :
+    default:
       this.userStore = userJsonStore;
       this.streetStore = streetJsonStore;
       this.placemarkStore = placemarkJsonStore;
