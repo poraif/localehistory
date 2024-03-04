@@ -1,6 +1,7 @@
-// import { userMemStore } from "./mem/user-mem-store.ts";
-// import { streetMemStore } from "./mem/street-mem-store.ts";
-// import { placemarkMemStore } from "./mem/placemark-mem-store.ts";
+import { userMongoStore } from "./mongo/user-mongo-store.js";
+import { streetMongoStore } from "./mongo/street-mongo-store.js";
+import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
+import { connectMongo } from "./mongo/connect.js";
 
 import { userJsonStore } from "./json/user-json-store.js";
 import { streetJsonStore } from "./json/street-json-store.js";
@@ -11,9 +12,18 @@ export const db = {
   streetStore: null,
   placemarkStore: null,
 
-  init() {
-    this.userStore = userJsonStore;
-    this.streetStore = streetJsonStore;
-    this.placemarkStore = placemarkJsonStore;
-  },
+init(storeType) {
+  switch (storeType) {
+    case "mongo" :
+      this.userStore = userMongoStore;
+      this.streetStore = streetMongoStore;
+      this.placemarkStore = placemarkMongoStore;
+      connectMongo();
+      break;
+    default :
+      this.userStore = userJsonStore;
+      this.streetStore = streetJsonStore;
+      this.placemarkStore = placemarkJsonStore;
+  }
+},
 };

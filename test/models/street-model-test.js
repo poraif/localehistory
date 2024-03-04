@@ -1,11 +1,15 @@
+import { EventEmitter } from "events";
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testStreets, talbot } from "./fixtures.js";
+import { db } from "../../src/models/db.js";
+import { testStreets, talbot } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
+
+EventEmitter.setMaxListeners(25);
 
 suite("Street Model tests", () => {
 
     setup(async () => {
-      db.init("json");
+      db.init("mongo");
       await db.streetStore.deleteAllStreets();
       for (let i = 0; i < testStreets.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
@@ -15,7 +19,7 @@ suite("Street Model tests", () => {
   
     test("create a street", async () => {
       const street = await db.streetStore.addStreet(talbot);
-      assert.equal(talbot, street);
+      assertSubset(talbot, street);
       assert.isDefined(street._id);
     });
   
@@ -30,7 +34,7 @@ suite("Street Model tests", () => {
     test("get a street - success", async () => {
       const street = await db.streetStore.addStreet(talbot);
       const returnedStreet = await db.streetStore.getStreetById(street._id);
-      assert.equal(talbot, street);
+      assertSubset(talbot, street);
     });
   
     test("delete One street - success", async () => {
