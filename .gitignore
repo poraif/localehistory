@@ -127,3 +127,7 @@ dist
 /node_modules
 
 localehistory.code-workspace
+
+src/models/json/db.json
+
+/db

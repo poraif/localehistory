@@ -2,7 +2,6 @@ import { aboutController } from "./controllers/about-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { streetController } from "./controllers/street-controller.js";
-import { placemarkController } from "./controllers/placemark-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -21,11 +20,4 @@ export const webRoutes = [
   { method: "GET", path: "/street/{id}", config: streetController.index },
   { method: "POST", path: "/street/{id}/addplacemark", config: streetController.addPlacemark },
   { method: "GET", path: "/street/{id}/deleteplacemark/{placemarkid}", config: streetController.deletePlacemark },
-
-
-  { method: "GET", path: "/placemark/{id}/editplacemark/{placemarkid}", config: placemarkController.index },
-  { method: "POST", path: "/placemark/{id}/updateplacemark/{placemarkid}", config: placemarkController.update },
- 
-
-  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 ];

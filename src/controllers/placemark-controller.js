@@ -7,7 +7,7 @@ export const placemarkController = {
       const street = await db.streetStore.getStreetById(request.params.id);
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid);
       const viewData = {
-        title: "Edit Song",
+        title: "Edit placemark",
         street: street,
         placemark: placemark,
       };
@@ -32,7 +32,6 @@ export const placemarkController = {
         latitude: Number(request.payload.latitude),
         longitude: Number(request.payload.longitude),
         category: request.payload.category,
-        author: request.payload.author,
       };
       await db.placemarkStore.updatePlacemark(placemark, newPlacemark);
       return h.redirect(`/street/${request.params.id}`);
