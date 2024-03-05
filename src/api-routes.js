@@ -14,9 +14,9 @@ export const apiRoutes = [
     { method: "GET", path: "/api/streets/{id}", config: streetApi.findOne },
     { method: "DELETE", path: "/api/streets/{id}", config: streetApi.deleteOne },
   
-    { method: "GET", path: "/api/placemarks", config: placemarkApi.find },
-    { method: "GET", path: "/api/placemarks/{id}", config: placemarkApi.findOne },
-    { method: "POST", path: "/api/streets/{id}/placemarks", config: placemarkApi.create },
-    { method: "DELETE", path: "/api/placemarks", config: placemarkApi.deleteAll },
-    { method: "DELETE", path: "/api/placemarks/{id}", config: placemarkApi.deleteOne },
+    // { method: "GET", path: "/api/placemarks", config: placemarkApi.find },
+    // { method: "GET", path: "/api/placemarks/{id}", config: placemarkApi.findOne },
+    // { method: "POST", path: "/api/streets/{id}/placemarks", config: placemarkApi.create },
+    // { method: "DELETE", path: "/api/placemarks", config: placemarkApi.deleteAll },
+    // { method: "DELETE", path: "/api/placemarks/{id}", config: placemarkApi.deleteOne },
   ];
