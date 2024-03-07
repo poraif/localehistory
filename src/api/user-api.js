@@ -1,7 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
-import { UserArray, UserSpec, IdSpec } from "../models/joi-schemas.js";
+import { UserArray, UserSpec, IdSpec, UserSpecPlus } from "../models/joi-schemas.js";
 
 export const userApi = {
   find: {

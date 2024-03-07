@@ -1,6 +1,7 @@
 import Boom from "@hapi/boom";
-import { StreetSpec } from "../models/joi-schemas.js";
+import { IdSpec, StreetArraySpec, StreetSpec, StreetSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const streetApi = {
   find: {
@@ -13,6 +14,10 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: StreetArraySpec, failAction: validationError },
+    description: "Get all streets",
+    notes: "Returns all streets",
   },
 
   findOne: {
@@ -28,6 +33,11 @@ export const streetApi = {
         return Boom.serverUnavailable("No Street with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a street",
+    notes: "Returns a street",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   create: {
@@ -44,6 +54,11 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a street",
+    notes: "Returns the newly created street",
+    validate: { payload: StreetSpec, failAction: validationError },
+    response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
@@ -60,6 +75,9 @@ export const streetApi = {
         return Boom.serverUnavailable("No Street with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a street",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -72,5 +90,7 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all streets",
   },
 };
