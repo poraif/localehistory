@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 import Mongoose from "mongoose";
 
 export function connectMongo() {
-  dotenv.config({silent: true});
+  dotenv.config();
 
   Mongoose.set("strictQuery", true);
   Mongoose.connect(process.env.db);

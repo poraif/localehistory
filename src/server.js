@@ -15,8 +15,11 @@ import { accountsController } from "./controllers/accounts-controller.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({silent: true});
-
+const result = dotenv.config();
+if (result.error) {
+  console.log(result.error.message);
+  process.exit(1);
+}
 
 async function init() {
   const server = Hapi.server({
