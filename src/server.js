@@ -2,7 +2,7 @@ import Vision from "@hapi/vision";
 import Inert from "@hapi/inert";
 import Hapi from "@hapi/hapi";
 import Cookie from "@hapi/cookie";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import path from "path";
 import Joi from "joi";
 import { fileURLToPath } from "url";
@@ -15,11 +15,11 @@ import { accountsController } from "./controllers/accounts-controller.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const result = dotenv.config();
-if (result.error) {
-  console.log(result.error.message);
-  process.exit(1);
-}
+// const result = dotenv.config();
+// if (result.error) {
+//   console.log(result.error.message);
+//   process.exit(1);
+// }
 
 async function init() {
   const server = Hapi.server({
