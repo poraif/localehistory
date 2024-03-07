@@ -5,6 +5,7 @@ import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
 import path from "path";
 import Joi from "joi";
+import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import Handlebars from "handlebars";
 import { webRoutes } from "./web-routes.js";
@@ -21,14 +22,28 @@ if (result.error) {
   process.exit(1);
 }
 
+const swaggerOptions = {
+  info: {
+    title: "LocaleHistory API",
+    version: "1.0",
+  },
+};
+
 async function init() {
   const server = Hapi.server({
     port: process.env.PORT || 3000,
   });
 
-  await server.register(Vision);
-  await server.register(Cookie);
-  await server.register(Inert);
+  await server.register([
+    Inert,
+    Vision,
+    Cookie,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
+
   server.validator(Joi);
 
   server.views({
