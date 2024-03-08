@@ -89,7 +89,7 @@ export const placemarkApi = {
       }
     },
     tags: ["api"],
-    description: "Delete a placemark",
+    description: "Delete placemark",
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
 };
