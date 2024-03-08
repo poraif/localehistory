@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const streetApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const streets = await db.streetStore.getAllStreets();
@@ -21,7 +23,9 @@ export const streetApi = {
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const street = await db.streetStore.getStreetById(request.params.id);
@@ -34,14 +38,16 @@ export const streetApi = {
       }
     },
     tags: ["api"],
-    description: "Find a street",
+    description: "Find a Street",
     notes: "Returns a street",
     validate: { params: { id: IdSpec }, failAction: validationError },
     response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const street = request.payload;
@@ -55,14 +61,16 @@ export const streetApi = {
       }
     },
     tags: ["api"],
-    description: "Create a street",
+    description: "Create a Street",
     notes: "Returns the newly created street",
     validate: { payload: StreetSpec, failAction: validationError },
     response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const street = await db.streetStore.getStreetById(request.params.id);
@@ -81,7 +89,9 @@ export const streetApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.streetStore.deleteAllStreets();
@@ -91,6 +101,6 @@ export const streetApi = {
       }
     },
     tags: ["api"],
-    description: "Delete all streets",
+    description: "Delete all StreetApi",
   },
 };

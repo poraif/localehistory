@@ -1,5 +1,5 @@
 import axios from "axios";
-import { serviceUrl } from "../fixtures.js";
+import { maggie, serviceUrl } from "../fixtures.js";
 
 export const localehistoryService = {
   localehistoryUrl: serviceUrl,
@@ -15,8 +15,12 @@ export const localehistoryService = {
   },
 
   async getAllUsers() {
-    const res = await axios.get(`${this.localehistoryUrl}/api/users`);
-    return res.data;
+    try {
+      const res = await axios.get(`${this.localehistoryUrl}/api/users`);
+      return res.data;
+    } catch (e) {
+      return null;
+    }
   },
 
   async deleteAllUsers() {
@@ -72,5 +76,15 @@ export const localehistoryService = {
   async deletePlacemark(id) {
     const res = await axios.delete(`${this.localehistoryUrl}/api/placemarks/${id}`);
     return res.data;
+  },
+
+  async authenticate(user) {
+    const response = await axios.post(`${this.localehistoryUrl}/api/users/authenticate`, user);
+    axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+    return response.data;
+  },
+
+  async clearAuth() {
+    axios.defaults.headers.common["Authorization"] = "";
   },
 };

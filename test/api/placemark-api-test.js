@@ -1,22 +1,24 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { localehistoryService } from "./localehistory-service.js";
-import { maggie, talbot, testStreets, testPlacemarks, behanStatue } from "../fixtures.js";
+import { maggie, talbot, testStreets, testPlacemarks, behanStatue, maggieAuth } from "../fixtures.js";
 
 suite("Placemark API tests", () => {
   let user = null;
   let dublinStreets = null;
 
   setup(async () => {
-    await localehistoryService.deleteAllStreets();
-    await localehistoryService.deleteAllUsers();
-    await localehistoryService.deleteAllPlacemarks();
+    localehistoryService.clearAuth();
     user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
+    await localehistoryService.deleteAllStreets();
+    await localehistoryService.deleteAllPlacemarks();
+    await localehistoryService.deleteAllUsers();
+    user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
     talbot.userid = user._id;
     dublinStreets = await localehistoryService.createStreet(talbot);
   });
-
-  teardown(async () => {});
 
   test("create placemark", async () => {
     const returnedPlacemark = await localehistoryService.createPlacemark(dublinStreets._id, behanStatue);

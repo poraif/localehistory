@@ -3,7 +3,7 @@ import { assert } from "chai";
 import { localehistoryService } from "./localehistory-service.js";
 import { assertSubset } from "../test-utils.js";
 
-import { maggie, talbot, testStreets } from "../fixtures.js";
+import { maggie, talbot, testStreets, maggieAuth } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -11,13 +11,15 @@ suite("Street API tests", () => {
   let user = null;
 
   setup(async () => {
+    localehistoryService.clearAuth();
+    user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
     await localehistoryService.deleteAllStreets();
     await localehistoryService.deleteAllUsers();
     user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
     talbot.userid = user._id;
   });
-
-  teardown(async () => {});
 
   test("create street", async () => {
     const returnedStreet = await localehistoryService.createStreet(talbot);
