@@ -56,7 +56,7 @@ export const maggie = {
   export const behanStatue = {
     title: "Brendan Behan statue",
     description: "A statue of the famous Irish writer",
-    year: "1981",
+    year: 1981,
     latitude: 53.349562,
     longitude: -6.278198,
     category: "Landmark"
@@ -66,15 +66,15 @@ export const maggie = {
     {
       title: "Béal na Bláth",
       description: "The site of Michael Collins' death",
-        year: "1922",
-        latitude: 51.7796,
-        longitude: -8.7323,
-        category: "Event"
+      year: 1922,
+      latitude: 51.7796,
+      longitude: -8.7323,
+      category: "Event"
     },
     {
       title: "James Joyce house",
       description: "The house where James Joyce lived",
-      year: "1882",
+      year: 1882,
       latitude: 53.3647,
       longitude: -6.0653,
       category: "Residence"
@@ -82,7 +82,7 @@ export const maggie = {
     {
       title: "GPO",
       description: "The site of the 1916 Easter Rising. It is now a museum and post office. It's where the proclamation of independence was read out.",
-      year: "2003 BC",
+      year: 2003,
       latitude: 53.3498,
       longitude: -6.2603,
       category: "Landmark"

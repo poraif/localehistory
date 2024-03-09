@@ -27,7 +27,7 @@ export const streetController = {
       const newPlacemark = {
         title: request.payload.title,
         description: request.payload.description,
-        year: request.payload.year,
+        year: Number(request.payload.year),
         latitude: Number(request.payload.latitude),
         longitude: Number(request.payload.longitude),
         category: request.payload.category,

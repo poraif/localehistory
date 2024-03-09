@@ -27,7 +27,7 @@ export const PlacemarkSpec = Joi.object()
   .keys({
     title: Joi.string().max(30).required().example("Brendan Behan statue"),
     description: Joi.string().max(150).optional().example("A statue of the famous Irish writer"),
-    year: Joi.string().optional().max(6).example("900 AD"),
+    year: Joi.number().optional().max(2030).example(1900),
     latitude: Joi.number().required().min(-90).max(90).example(53.349562),
     longitude: Joi.number().required().min(-180).max(180).example(-6.278198),
     category: Joi.string().valid("Landmark", "Residence", "Event", "Other").required().example("residence"),
