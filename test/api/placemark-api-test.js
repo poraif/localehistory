@@ -1,32 +1,34 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { localehistoryService } from "./localehistory-service.js";
-import { maggie, talbot, testStreets, testPlacemarks, behanStatue } from "../fixtures.js";
+import { maggie, talbot, testStreets, testPlacemarks, behanStatue, maggieAuth } from "../fixtures.js";
 
 suite("Placemark API tests", () => {
   let user = null;
-  let dublinStreets = null;
+  let talbotSt = null;
 
   setup(async () => {
-    await localehistoryService.deleteAllStreets();
-    await localehistoryService.deleteAllUsers();
-    await localehistoryService.deleteAllPlacemarks();
+    localehistoryService.clearAuth();
     user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
+    await localehistoryService.deleteAllStreets();
+    await localehistoryService.deleteAllPlacemarks();
+    await localehistoryService.deleteAllUsers();
+    user = await localehistoryService.createUser(maggie);
+    await localehistoryService.authenticate(maggieAuth);
     talbot.userid = user._id;
-    dublinStreets = await localehistoryService.createStreet(talbot);
+    talbotSt = await localehistoryService.createStreet(talbot);
   });
 
-  teardown(async () => {});
-
   test("create placemark", async () => {
-    const returnedPlacemark = await localehistoryService.createPlacemark(dublinStreets._id, behanStatue);
+    const returnedPlacemark = await localehistoryService.createPlacemark(talbotSt._id, behanStatue);
     assertSubset(behanStatue, returnedPlacemark);
   });
 
   test("create Multiple placemarks", async () => {
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await localehistoryService.createPlacemark(dublinStreets._id, testPlacemarks[i]);
+      await localehistoryService.createPlacemark(talbotSt._id, testPlacemarks[i]);
     }
     const returnedPlacemarks = await localehistoryService.getAllPlacemarks();
     assert.equal(returnedPlacemarks.length, testPlacemarks.length);
@@ -40,7 +42,7 @@ suite("Placemark API tests", () => {
   test("Delete PlacemarkApi", async () => {
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await localehistoryService.createPlacemark(dublinStreets._id, testPlacemarks[i]);
+      await localehistoryService.createPlacemark(talbotSt._id, testPlacemarks[i]);
     }
     let returnedPlacemarks = await localehistoryService.getAllPlacemarks();
     assert.equal(returnedPlacemarks.length, testPlacemarks.length);
@@ -55,9 +57,9 @@ suite("Placemark API tests", () => {
   test("denormalised street", async () => {
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await localehistoryService.createPlacemark(dublinStreets._id, testPlacemarks[i]);
+      await localehistoryService.createPlacemark(talbotSt._id, testPlacemarks[i]);
     }
-    const returnedStreet = await localehistoryService.getStreet(dublinStreets._id);
+    const returnedStreet = await localehistoryService.getStreet(talbotSt._id);
     assert.equal(returnedStreet.placemarks.length, testPlacemarks.length);
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       assertSubset(testPlacemarks[i], returnedStreet.placemarks[i]);

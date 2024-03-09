@@ -6,6 +6,11 @@ export const maggie = {
     email: "maggie@simpson.com",
     password: "secret",
   };
+
+  export const maggieAuth = {
+    email: "maggie@simpson.com",
+    password: "secret",
+  };
   
   export const testUsers = [
     {
@@ -29,44 +34,42 @@ export const maggie = {
   ];
   
   export const talbot = {
-    title: "talbot street"
+    name: "talbot street"
   };
 
   export const parnell = {
-    title: "parnell street"
+    name: "parnell street"
   };
 
   export const testStreets = [
     {
-      title: "Meath Street"
+      name: "Meath Street"
     },
     {
-      title: "Talbot Street"
+      name: "Talbot Street"
     },
     {
-      title: "O'Connell Street"
+      name: "O'Connell Street"
     }
   ];
 
-  export const behanStatue = [
-    {
-      title: "Brendan Behan statue",
-      description: "A statue of the famous Irish writer",
-      year: 1981,
-      latitude: 53.349562,
-      longitude: -6.278198,
-      category: "Landmark"
-    }
-  ];
+  export const behanStatue = {
+    title: "Brendan Behan statue",
+    description: "A statue of the famous Irish writer",
+    year: 1981,
+    latitude: 53.349562,
+    longitude: -6.278198,
+    category: "Landmark"
+  };
 
   export const testPlacemarks = [
     {
       title: "Béal na Bláth",
       description: "The site of Michael Collins' death",
-        year: 1922,
-        latitude: 51.7796,
-        longitude: -8.7323,
-        category: "Event"
+      year: 1922,
+      latitude: 51.7796,
+      longitude: -8.7323,
+      category: "Event"
     },
     {
       title: "James Joyce house",

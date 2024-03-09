@@ -19,7 +19,7 @@ suite("Placemark Model tests", () => {
   
     test("create single placemark", async () => {
       const parnellList = await db.streetStore.addStreet(parnell);
-      const placemark = await db.placemarkStore.addPlacemark(parnellList._id, behanStatue);
+      const placemark = await db.placemarkStore.addPlacemark(talbotList._id, behanStatue);
       assert.isNotNull(placemark._id);
       assertSubset(behanStatue, placemark);
     });

@@ -1,10 +1,13 @@
 import Boom from "@hapi/boom";
-import { StreetSpec } from "../models/joi-schemas.js";
+import { IdSpec, StreetArraySpec, StreetSpec, StreetSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const streetApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const streets = await db.streetStore.getAllStreets();
@@ -13,10 +16,16 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: StreetArraySpec, failAction: validationError },
+    description: "Get all streets",
+    notes: "Returns all streets",
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const street = await db.streetStore.getStreetById(request.params.id);
@@ -28,10 +37,17 @@ export const streetApi = {
         return Boom.serverUnavailable("No Street with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Street",
+    notes: "Returns a street",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const street = request.payload;
@@ -44,10 +60,17 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a Street",
+    notes: "Returns the newly created street",
+    validate: { payload: StreetSpec, failAction: validationError },
+    response: { schema: StreetSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const street = await db.streetStore.getStreetById(request.params.id);
@@ -60,10 +83,15 @@ export const streetApi = {
         return Boom.serverUnavailable("No Street with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a street",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.streetStore.deleteAllStreets();
@@ -72,5 +100,7 @@ export const streetApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all StreetApi",
   },
 };

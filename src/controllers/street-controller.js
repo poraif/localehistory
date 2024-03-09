@@ -27,9 +27,9 @@ export const streetController = {
       const newPlacemark = {
         title: request.payload.title,
         description: request.payload.description,
-        year: request.payload.year,
-        latitude: request.payload.latitude,
-        longitude: request.payload.longitude,
+        year: Number(request.payload.year),
+        latitude: Number(request.payload.latitude),
+        longitude: Number(request.payload.longitude),
         category: request.payload.category,
       };
       await db.placemarkStore.addPlacemark(street._id, newPlacemark);
