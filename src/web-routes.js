@@ -24,7 +24,6 @@ export const webRoutes = [
   { method: "GET", path: "/street/{id}/placemark/{placemarkid}", config: placemarkController.index },
   { method: "GET", path: "/street/{id}/editplacemark/{placemarkid}", config: placemarkController.showUpdate },
   { method: "POST", path: "/street/{id}/updateplacemark/{placemarkid}", config: placemarkController.update },
-  { method: "POST", path: "/street/{id}/placemark/{placemarkid}/uploadimage", config: placemarkController.uploadImage },
 
   { method: "GET", path: "/street/{id}", config: streetController.index },
   { method: "POST", path: "/street/{id}/addplacemark", config: streetController.addPlacemark },

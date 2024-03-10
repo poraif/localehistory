@@ -17,32 +17,7 @@ export const placemarkController = {
       return h.view("placemark-view", viewData);
     },
   },
-
-  uploadImage: {
-    handler: async function (request, h) {
-      try {
-        const street = await db.streetStore.getStreetById(request.params.id);
-        const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid); // Fix: Retrieve placemark by placemarkid
-        const file = request.payload.imagefile;
-        if (Object.keys(file).length > 0) {
-          const url = await imageStore.uploadImage(request.payload.imagefile);
-          placemark.img = url;
-          await db.placemarkStore.updatePlacemark(placemark, updatedPlacemark);
-        }
-        return h.redirect(`/street/${street._id}/placemark/${placemark._id}`); // Fix: Use placemark._id
-      } catch (err) {
-        console.log(err);
-        return h.redirect(`/street/${street._id}/placemark/${placemark._id}`); // Fix: Use placemark._id
-      }
-    },
-    payload: {
-      multipart: true,
-      output: "data",
-      maxBytes: 209715200,
-      parse: true,
-    },
-  },
-
+  
   showUpdate: {
     handler: async function (request, h) {
       const street = await db.streetStore.getStreetById(request.params.id);
