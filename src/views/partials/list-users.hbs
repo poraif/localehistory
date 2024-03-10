@@ -1,0 +1,29 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+      {{#if admin}}
+      {{else}}
+        <tr>
+          <td>
+            {{firstName}} {{lastName}}
+          </td>
+          <td>
+            {{email}}
+          </td>
+          <td>
+            <a href="/admindashboard/users/delete/{{_id}}" class="ui icon button">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+  </tbody>
+</table>
