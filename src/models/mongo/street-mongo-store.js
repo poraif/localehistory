@@ -29,6 +29,13 @@ export const streetMongoStore = {
     return street;
   },
 
+  async updateStreet(updatedStreet) {
+    const street = await Street.findOne({ _id: updatedStreet._id });
+    street.name = updatedStreet.name;
+    street.img = updatedStreet.img;
+    await street.save();
+  },
+
   async deleteStreetById(id) {
     try {
       await Street.deleteOne({ _id: id });

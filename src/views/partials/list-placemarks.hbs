@@ -2,11 +2,10 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th>Year</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th>Category</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -15,22 +14,15 @@
         <td>
           {{title}}
         </td>
-        <td>
-          {{description}}
-        </td>
-        <td>
-          {{year}}
-        </td>
-        <td>
-          {{latitude}}
-        </td>
-                <td>
-          {{longitude}}
-        </td>
-                <td>
+		<td>
           {{category}}
         </td>
-          <a href="/placemark/{{../street._id}}/editplacemark/{{_id}}" class="ui icon button">
+		<td>
+		  <a href="/street/{{../street._id}}/placemark/{{_id}}" class="ui icon button">
+			<i class="fas fa-eye"></i>
+		  </a>
+		<td>
+          <a href="/street/{{../street._id}}/editplacemark/{{_id}}" class="ui icon button">
             <i class="fas fa-edit"></i>
           </a>
         </td>

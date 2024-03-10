@@ -10,8 +10,7 @@
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit",
     "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
-    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit",
-    "sass:compile": "node-sass src/styles/main.scss public/css/style.css"
+    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit"
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,7 @@
     "@hapi/hapi": "^21.3.3",
     "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
-    "bulma-extensions": "^6.2.7",
+    "cloudinary": "^2.0.3",
     "dotenv": "^16.4.5",
     "handlebars": "^4.7.8",
     "hapi-auth-jwt2": "^10.5.1",
@@ -40,12 +39,11 @@
     "lowdb": "^7.0.1",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^8.2.0",
-    "node-sass": "^9.0.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@creativebulma/bulma-collapsible": "^1.0.4",
     "axios": "^1.6.7",
+    "bulma": "^0.9.4",
     "chai": "^5.1.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",

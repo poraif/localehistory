@@ -4,6 +4,21 @@ import { db } from "../models/db.js";
 export const placemarkController = {
   index: {
     handler: async function (request, h) {
+      const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid);
+      const viewData = {
+        title: placemark.title,
+        description: placemark.description,
+        year: placemark.year,
+        latitude: placemark.latitude,
+        longitude: placemark.longitude,
+        category: placemark.category,
+      };
+      return h.view("placemark-view", viewData);
+    },
+  },
+
+  showUpdate: {
+    handler: async function (request, h) {
       const street = await db.streetStore.getStreetById(request.params.id);
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid);
       const viewData = {
@@ -11,7 +26,7 @@ export const placemarkController = {
         street: street,
         placemark: placemark,
       };
-      return h.view("placemark-view", viewData);
+      return h.view("update-placemark-view", viewData);
     },
   },
 

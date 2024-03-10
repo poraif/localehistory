@@ -1,5 +1,6 @@
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { imageStore } from "../models/image-store.js";
 
 export const streetController = {
   index: {
@@ -34,6 +35,30 @@ export const streetController = {
       };
       await db.placemarkStore.addPlacemark(street._id, newPlacemark);
       return h.redirect(`/street/${street._id}`);
+    },
+  },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const street = await db.streetStore.getStreetById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          street.img = url;
+          await db.streetStore.updateStreet(street);
+        }
+        return h.redirect(`/street/${street._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/street/${street._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
     },
   },
 
