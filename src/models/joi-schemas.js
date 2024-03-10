@@ -13,6 +13,7 @@ export const UserCredentialsSpec = Joi.object()
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
+  admin: Joi.boolean().example(false).required(),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
@@ -46,6 +47,7 @@ export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("Pl
 export const StreetSpec = Joi.object()
   .keys({
     name: Joi.string().required().example("Meath Street"),
+    img: Joi.string().uri().optional().example("https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png"),
     userid: IdSpec,
     placemarks: PlacemarkArraySpec,
   })

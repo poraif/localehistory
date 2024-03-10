@@ -5,72 +5,63 @@
       "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "secret",
-      "_id": "7b0015c4-bfe0-4f70-ae1a-6b8fa19cac09"
+      "admin": false,
+      "_id": "0d713b68-1231-45eb-b69d-f2f065d5376d"
     },
     {
       "firstName": "Marge",
       "lastName": "Simpson",
       "email": "marge@simpson.com",
       "password": "secret",
-      "_id": "b011cd42-1be8-4bd1-8e90-7dd45482373b"
+      "admin": false,
+      "_id": "d799bd9b-fbab-413b-b412-eadff50c8ab7"
     },
     {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret",
-      "_id": "e8b309e2-8b66-4fd1-9710-1014a55cc3f6"
+      "admin": false,
+      "_id": "6365b2c8-aa8a-4956-b2a6-535966215e0c"
     }
   ],
   "streets": [
     {
-      "title": "Meath Street",
-      "_id": "a95e5e84-3c81-404f-8719-1052fdfa17e8"
-    },
-    {
-      "title": "Talbot Street",
-      "_id": "3b62908c-366a-4daa-8bb3-93a8133d06f1"
-    },
-    {
-      "title": "O'Connell Street",
-      "_id": "5e0848c9-ce18-4886-bbc0-bb5a0b0c8200"
+      "name": "talbot street",
+      "img": "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+      "_id": "f9487a84-c5e6-4fe1-8c37-1ba88b762113"
     }
   ],
   "placemarks": [
     {
-      "title": "vdfdv",
-      "_id": "342f0545-33c7-4b75-9077-9b0ab4f16da7",
-      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
-    },
-    {
-      "title": "sfrg",
-      "_id": "73e2e8b7-2471-44be-a010-57e50a627357",
-      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
-    },
-    {
-      "title": "test",
-      "_id": "7e8d01f5-4cab-4441-bc5c-5b57f5a45fee",
-      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "year": "1956",
-      "latitude": 12,
-      "longitude": 123,
+      "title": "Béal na Bláth",
+      "description": "The site of Michael Collins' death",
+      "year": 1922,
+      "latitude": 51.7796,
+      "longitude": -8.7323,
       "category": "Event",
-      "_id": "e73eddd6-a325-4e7d-bc15-a5eba036bdd0",
-      "streetid": "b4b890db-c2f7-4185-91a0-52182bdb8b8c"
+      "_id": "3e6ad2bf-f176-4255-a821-05476dc29a7c",
+      "streetid": "f9487a84-c5e6-4fe1-8c37-1ba88b762113"
     },
     {
-      "title": "ewr",
-      "description": "reg",
-      "year": "124",
-      "latitude": 34,
-      "longitude": 34,
-      "category": "Other",
-      "_id": "550cf6dc-aaef-44fb-b50f-3265fca97cdd",
-      "streetid": "7b61cdb5-86be-4b0e-96a0-da8e0c7c44ee"
+      "title": "James Joyce house",
+      "description": "The house where James Joyce lived",
+      "year": 1882,
+      "latitude": 53.3647,
+      "longitude": -6.0653,
+      "category": "Residence",
+      "_id": "d2dd5b01-0500-43d1-8dc3-32e2c90412c9",
+      "streetid": "f9487a84-c5e6-4fe1-8c37-1ba88b762113"
+    },
+    {
+      "title": "GPO",
+      "description": "The site of the 1916 Easter Rising. It is now a museum and post office. It's where the proclamation of independence was read out.",
+      "year": 2003,
+      "latitude": 53.3498,
+      "longitude": -6.2603,
+      "category": "Landmark",
+      "_id": "ee7a9a5c-b889-4e76-9400-889588373457",
+      "streetid": "f9487a84-c5e6-4fe1-8c37-1ba88b762113"
     }
   ]
 }

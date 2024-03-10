@@ -9,7 +9,7 @@ EventEmitter.setMaxListeners(25);
 suite("Street Model tests", () => {
 
     setup(async () => {
-      db.init("mongo");
+      db.init("json");
       await db.streetStore.deleteAllStreets();
       for (let i = 0; i < testStreets.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
