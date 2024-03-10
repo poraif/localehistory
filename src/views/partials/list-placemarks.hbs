@@ -1,4 +1,4 @@
-<table class="table is-fullwidth">
+<table class="table is-fullwidth is-striped is-hoverable">
   <thead>
     <tr>
       <th>Title</th>
@@ -10,25 +10,28 @@
   </thead>
   <tbody>
     {{#each street.placemarks}}
-      <tr>
+        <tr>
+        <td>{{title}}</td>
+        <td>{{category}}</td>
         <td>
-          {{title}}
-        </td>
-		<td>
-          {{category}}
-        </td>
-		<td>
-		  <a href="/street/{{../street._id}}/placemark/{{_id}}" class="ui icon button">
-			<i class="fas fa-eye"></i>
-		  </a>
-		<td>
-          <a href="/street/{{../street._id}}/editplacemark/{{_id}}" class="ui icon button">
-            <i class="fas fa-edit"></i>
+          <a href="/street/{{../street._id}}/placemark/{{_id}}" class="button is-info is-small">
+            <span class="icon">
+              <i class="fas fa-eye"></i>
+            </span>
           </a>
         </td>
         <td>
-          <a href="/street/{{../street._id}}/deleteplacemark/{{_id}}" class="ui icon button">
-            <i class="fas fa-trash"></i>
+          <a href="/street/{{../street._id}}/editplacemark/{{_id}}" class="button is-primary is-small">
+            <span class="icon">
+              <i class="fas fa-edit"></i>
+            </span>
+          </a>
+        </td>
+        <td>
+          <a href="/street/{{../street._id}}/deleteplacemark/{{_id}}" class="button is-danger is-small">
+            <span class="icon">
+              <i class="fas fa-trash"></i>
+            </span>
           </a>
         </td>
       </tr>

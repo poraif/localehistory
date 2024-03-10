@@ -1,4 +1,4 @@
-<table class="table is-fullwidth">
+<table class="table is-fullwidth is-striped is-hoverable">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,9 +17,12 @@
           <td>
             {{email}}
           </td>
-          <td>
-            <a href="/admindashboard/users/delete/{{_id}}" class="ui icon button">
-              <i class="fas fa-trash"></i>
+         <td>
+            <a href="/admindashboard/users/delete/{{_id}}" class="button is-danger is-small">
+              <span class="icon">
+                <i class="fas fa-trash"></i>
+              </span>
+              <span>Delete</span>
             </a>
           </td>
         </tr>
