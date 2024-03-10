@@ -31,6 +31,7 @@ export const PlacemarkSpec = Joi.object()
     latitude: Joi.number().required().min(-90).max(90).example(53.349562),
     longitude: Joi.number().required().min(-180).max(180).example(-6.278198),
     category: Joi.string().valid("Landmark", "Residence", "Event", "Other").required().example("residence"),
+    // imagefile: Joi.string().optional(),
     streetid: IdSpec,
   })
   .label("Placemark");

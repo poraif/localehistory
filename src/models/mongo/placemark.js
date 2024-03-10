@@ -9,6 +9,7 @@ const placemarkSchema = new Schema({
   latitude: Number,
   longitude: Number,
   category: String,
+  img: String,
   streetid: {
     type: Schema.Types.ObjectId,
     ref: "Street",

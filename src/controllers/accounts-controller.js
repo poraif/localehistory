@@ -8,12 +8,14 @@ export const accountsController = {
       return h.view("main", { title: "View your added streets" });
     },
   },
+
   showSignup: {
     auth: false,
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up to Locale History" });
     },
   },
+
   signup: {
     auth: false,
     validate: {
@@ -29,12 +31,28 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
+
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login-view", { title: "Login to Locale History" });
     },
   },
+
+  adminDashboard: {
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const users = await db.userStore.getAllUsers();
+      const viewData = {
+        title: "Admin Dashboard",
+        users: users,
+        user: loggedInUser
+      };
+      return h.view("admin-dashboard-view", viewData);
+    },
+  },
+
+
   login: {
     auth: false,
     validate: {
@@ -51,9 +69,15 @@ export const accountsController = {
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
+      if (user.admin) {
+        return h.redirect("/admindashboard");
+      }
       return h.redirect("/dashboard");
     },
   },
+
+
+
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();
