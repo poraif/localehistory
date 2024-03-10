@@ -7,7 +7,7 @@ suite("Placemark Model tests", () => {
     let talbotList = null;
   
     setup(async () => {
-      db.init("json");
+      db.init("mongo");
       await db.streetStore.deleteAllStreets();
       await db.placemarkStore.deleteAllPlacemarks();
       talbotList = await db.streetStore.addStreet(talbot);
