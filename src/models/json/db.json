@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "firstName": "Maggie",
+      "lastName": "Simpson",
+      "email": "maggie@simpson.com",
+      "password": "secret",
+      "admin": false,
+      "_id": "db6a3ae4-8317-4382-a2d7-f8e0372be03c"
+    }
+  ],
+  "streets": [],
+  "placemarks": [
+    {
+      "title": "vdfdv",
+      "_id": "342f0545-33c7-4b75-9077-9b0ab4f16da7",
+      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
+    },
+    {
+      "title": "sfrg",
+      "_id": "73e2e8b7-2471-44be-a010-57e50a627357",
+      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
+    },
+    {
+      "title": "test",
+      "_id": "7e8d01f5-4cab-4441-bc5c-5b57f5a45fee",
+      "streetid": "549a170c-1eb8-448d-bec1-285dcafba9ec"
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "year": "1956",
+      "latitude": 12,
+      "longitude": 123,
+      "category": "Event",
+      "_id": "e6d58e53-bf94-4816-bd7b-e8df40cbbd05",
+      "streetid": "9bd7a3b4-c961-4629-b12f-5244b57fcd0c"
+    },
+    {
+      "title": "James Joyce house",
+      "description": "The house where James Joyce lived",
+      "year": 1882,
+      "latitude": 53.3647,
+      "longitude": -6.0653,
+      "category": "Residence",
+      "_id": "00c2377e-7b4a-4185-b518-96c8c16d1b92",
+      "streetid": "9bd7a3b4-c961-4629-b12f-5244b57fcd0c"
+    },
+    {
+      "title": "GPO",
+      "description": "The site of the 1916 Easter Rising. It is now a museum and post office. It's where the proclamation of independence was read out.",
+      "year": 2003,
+      "latitude": 53.3498,
+      "longitude": -6.2603,
+      "category": "Landmark",
+      "_id": "c535cbe2-ba9c-4670-860e-88ef2b18b6d8",
+      "streetid": "9bd7a3b4-c961-4629-b12f-5244b57fcd0c"
+    }
+  ]
+}
