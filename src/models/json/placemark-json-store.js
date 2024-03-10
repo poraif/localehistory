@@ -18,22 +18,18 @@ export const placemarkJsonStore = {
 
   async getPlacemarksByStreetId(id) {
     await db.read();
-    let t = db.data.placemarks.filter((placemark) => placemark.streetid === id);
-    if (t === undefined) t = null;
-    return t;
+    return db.data.placemarks.filter((placemark) => placemark.streetid === id);
   },
 
   async getPlacemarkById(id) {
     await db.read();
-    let t = db.data.placemarks.find((placemark) => placemark._id === id);
-    if (t === undefined) t = null;
-    return t;
+    return db.data.placemarks.find((placemark) => placemark._id === id);
   },
 
   async deletePlacemark(id) {
     await db.read();
     const index = db.data.placemarks.findIndex((placemark) => placemark._id === id);
-    if (index !== -1) db.data.placemarks.splice(index, 1);
+    db.data.placemarks.splice(index, 1);
     await db.write();
   },
 
@@ -44,11 +40,6 @@ export const placemarkJsonStore = {
 
   async updatePlacemark(placemark, updatedPlacemark) {
     placemark.title = updatedPlacemark.title;
-    placemark.description = updatedPlacemark.description;
-    placemark.year = updatedPlacemark.year;
-    placemark.latitude = updatedPlacemark.latitude;
-    placemark.longitude = updatedPlacemark.longitude;
-    placemark.category = updatedPlacemark.category;
     await db.write();
   },
 };

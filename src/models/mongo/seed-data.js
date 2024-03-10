@@ -39,17 +39,14 @@ export const seedData = {
     _model: "Street",
     oconnell: {
       name: "O'Connell Street",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
       userid: "->users.homer"
     },
     mall: {
       name: "The Mall",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
       userid: "->users.marge"
     },
     kieran: {
       name: "St Kieran's Street",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
       userid: "->users.bart"
     },
   },

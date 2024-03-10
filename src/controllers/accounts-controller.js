@@ -52,6 +52,7 @@ export const accountsController = {
     },
   },
 
+
   deleteUser: {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.id);
@@ -59,6 +60,9 @@ export const accountsController = {
       return h.redirect("/admindashboard");
     },
   },
+
+
+
 
   login: {
     auth: false,
@@ -82,6 +86,8 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+
+
 
   logout: {
     handler: function (request, h) {

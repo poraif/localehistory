@@ -5,7 +5,6 @@ export const maggie = {
     lastName: "Simpson",
     email: "maggie@simpson.com",
     password: "secret",
-    admin: false,
   };
 
   export const maggieAuth = {
@@ -19,46 +18,38 @@ export const maggie = {
       lastName: "Simpson",
       email: "homer@simpson.com",
       password: "secret",
-      admin: false,
     },
     {
       firstName: "Marge",
       lastName: "Simpson",
       email: "marge@simpson.com",
       password: "secret",
-      admin: false,
     },
     {
       firstName: "Bart",
       lastName: "Simpson",
       email: "bart@simpson.com",
       password: "secret",
-      admin: false,
     },
   ];
   
   export const talbot = {
-    name: "talbot street",
-    img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+    name: "talbot street"
   };
 
   export const parnell = {
-    name: "parnell street",
-    img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+    name: "parnell street"
   };
 
   export const testStreets = [
     {
-      name: "Meath Street",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+      name: "Meath Street"
     },
     {
-      name: "Talbot Street",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+      name: "Talbot Street"
     },
     {
-      name: "O'Connell Street",
-      img: "https://res.cloudinary.com/dn7kkzdb6/image/upload/v1710087360/kparpgwmjhgxepyvyzzh.png",
+      name: "O'Connell Street"
     }
   ];
 

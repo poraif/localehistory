@@ -126,6 +126,6 @@ dist
 
 localehistory.code-workspace
 
-src/models/json/db.json
+src\models\json\db.json
 
 /db
