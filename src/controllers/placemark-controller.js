@@ -1,6 +1,5 @@
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
-import { imageStore } from "../models/image-store.js";
 
 export const placemarkController = {
   index: {
@@ -17,7 +16,7 @@ export const placemarkController = {
       return h.view("placemark-view", viewData);
     },
   },
-  
+
   showUpdate: {
     handler: async function (request, h) {
       const street = await db.streetStore.getStreetById(request.params.id);

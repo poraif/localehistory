@@ -1,11 +1,14 @@
 {{> menu}}
 
-<section class="section">
-  <div class="title">
-    {{street.name}}
+<section class="section columns is-vcentered">
+  <div class="column is-left">
+    <div class="title">
+      {{street.name}}
+    </div>
+    {{> list-placemarks}}
+    {{> add-placemark}}
   </div>
-  {{> list-placemarks}}
-  {{> add-placemark}}
-
-
+  <div class="column is-right">
+    {{> street-image }}
+  </div>
 </section>
