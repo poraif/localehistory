@@ -1,10 +1,10 @@
 {{> menu}}
 
 
-<form class="box"  action="/street/{{_id}}/updateplacemark/{{placemark._id}}" method="POST">
-  <label>Update Placemark</label>
+<form class="box"  action="/placemark/{{street._id}}/updateplacemark/{{placemark._id}}" method="POST">
+  <h2>Update Placemark</h2>
    <div class="field">
-      <label class="label">Title</label> <input class="input" type="text" placeholder="{{title}}" name="title">
+      <label class="label">Title</label> <input class="input" type="text" placeholder={{title}} name="title">
     </div>
   <div class="field">
   <label class="label">Description</label>

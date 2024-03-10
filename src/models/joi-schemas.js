@@ -30,6 +30,7 @@ export const PlacemarkSpec = Joi.object()
     year: Joi.number().optional().max(2030).example(1900),
     latitude: Joi.number().required().min(-90).max(90).example(53.349562),
     longitude: Joi.number().required().min(-180).max(180).example(-6.278198),
+    category: Joi.string().required().valid("Landmark", "Residence", "Event", "Other").example("Landmark"),
     streetid: IdSpec,
   })
   .label("Placemark");
