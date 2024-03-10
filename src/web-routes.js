@@ -12,6 +12,7 @@ export const webRoutes = [
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
   { method: "GET", path: "/admindashboard", config: accountsController.adminDashboard },
+  { method: "GET", path: "/admindashboard/users/delete/{id}", config: accountsController.deleteUser },
 
 
   { method: "GET", path: "/about", config: aboutController.index },

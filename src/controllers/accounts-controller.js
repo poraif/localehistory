@@ -52,6 +52,14 @@ export const accountsController = {
     },
   },
 
+  deleteUser: {
+    handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.id);
+      await db.userStore.deleteUserById(user._id);
+      return h.redirect("/admindashboard");
+    },
+  },
+
 
   login: {
     auth: false,
